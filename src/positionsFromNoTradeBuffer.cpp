@@ -37,5 +37,5 @@ NumericVector positionsFromNoTradeBuffer(NumericVector current_positions, Numeri
 //
 
 /*** R
-positionsFromNoTradeBuffer(rep(0, 3), c(8, 11, 3), c(0.5, 0.3, 0.2), 1000, 3, 0.01)
+positionsFromNoTradeBuffer(rep(0, 3), c(8, 11, 3), c(0.5, 0.3, 0.2), 1000, 3, 0.01, 0.01)
 */
