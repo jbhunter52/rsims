@@ -13,7 +13,7 @@
 #' ensure that trades occur at appropriate prices.
 #' @examples
 #' @export
-cash_backtest <- function(prices, theo_weights, trade_buffer = 0., initial_cash = 10000, commission_pct = 0, capitalise_profits = FALSE) {
+cash_backtest <- function(prices, theo_weights, trade_buffer_low = 0., trade_buffer_high = 0., initial_cash = 10000, commission_pct = 0, capitalise_profits = FALSE) {
   if(trade_buffer < 0)
     stop("trade_buffer must be greater than or equal to zero")
 
@@ -49,7 +49,7 @@ cash_backtest <- function(prices, theo_weights, trade_buffer = 0., initial_cash 
 
     # update positions based on no-trade buffer
     # TODO: consider commissions in calculating position sizes (otherwise can go over leverage 1)
-    target_positions <- positionsFromNoTradeBuffer(current_positions, current_prices, current_theo_weights, cap_equity, trade_buffer)
+    target_positions <- positionsFromNoTradeBuffer(current_positions, current_prices, current_theo_weights, cap_equity, trade_buffer_low, trade_buffer_high)
 
     # calculate position deltas, trade values and commissions
     trades <- target_positions - current_positions

@@ -4,7 +4,7 @@ using namespace Rcpp;
 //' Calculate target positions from theoretical weights and trade buffer parameter
 //' @export
 // [[Rcpp::export]]
-NumericVector positionsFromNoTradeBuffer(NumericVector current_positions, NumericVector current_prices, NumericVector current_theo_weights, double cap_equity, double trade_buffer) {
+NumericVector positionsFromNoTradeBuffer(NumericVector current_positions, NumericVector current_prices, NumericVector current_theo_weights, double cap_equity, double trade_buffer_low, double trade_buffer_high) {
   int num_assets = current_positions.size();
   NumericVector current_weights(num_assets);
   NumericVector target_positions(num_assets);
@@ -21,10 +21,10 @@ NumericVector positionsFromNoTradeBuffer(NumericVector current_positions, Numeri
     //Rprintf(\"%i %f %f \\n\", j, current_theo_weights[j], current_weights[j]);
     if((R_IsNA(current_theo_weights[j])) | (current_theo_weights[j] == 0))
       target_positions[j] = 0;
-    else if(current_weights[j] < current_theo_weights[j] - trade_buffer)
-      target_positions[j] = (current_theo_weights[j] - trade_buffer)*cap_equity/current_prices[j];
-    else if(current_weights[j] > current_theo_weights[j] + trade_buffer)
-      target_positions[j] = (current_theo_weights[j] + trade_buffer)*cap_equity/current_prices[j];
+    else if(current_weights[j] < current_theo_weights[j] - trade_buffer_low)
+      target_positions[j] = (current_theo_weights[j] - trade_buffer_low)*cap_equity/current_prices[j];
+    else if(current_weights[j] > current_theo_weights[j] + trade_buffer_high)
+      target_positions[j] = (current_theo_weights[j] + trade_buffer_high)*cap_equity/current_prices[j];
   }
 
   return target_positions;
