@@ -5,6 +5,11 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // positionsFromNoTradeBuffer
 NumericVector positionsFromNoTradeBuffer(NumericVector current_positions, NumericVector current_prices, NumericVector current_theo_weights, double cap_equity, double trade_buffer_low, double trade_buffer_high);
 RcppExport SEXP _rsims_positionsFromNoTradeBuffer(SEXP current_positionsSEXP, SEXP current_pricesSEXP, SEXP current_theo_weightsSEXP, SEXP cap_equitySEXP, SEXP trade_buffer_lowSEXP, SEXP trade_buffer_highSEXP) {
@@ -23,7 +28,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_rsims_positionsFromNoTradeBuffer", (DL_FUNC) &_rsims_positionsFromNoTradeBuffer, 5},
+    {"_rsims_positionsFromNoTradeBuffer", (DL_FUNC) &_rsims_positionsFromNoTradeBuffer, 6},
     {NULL, NULL, 0}
 };
 

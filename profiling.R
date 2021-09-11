@@ -3,7 +3,8 @@ library(profvis)
 library(microbenchmark)
 library(tidyverse)
 
-load("~/rsims/data/backtest_df.RData")
+#load("~/rsims/data/backtest_df.RData")
+load("./data/backtest_df.RData")
 
 # get weights as a wide matrix (could do equal weight, in proportion to factor/signal, top n etc)
 backtest_theo_weights <- backtest_df %>%
