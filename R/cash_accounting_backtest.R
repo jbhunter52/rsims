@@ -14,9 +14,10 @@
 #' @examples
 #' @export
 cash_backtest <- function(prices, theo_weights, trade_buffer_low = 0., trade_buffer_high = 0., initial_cash = 10000, commission_pct = 0, capitalise_profits = FALSE) {
-  if(trade_buffer < 0)
-    stop("trade_buffer must be greater than or equal to zero")
-
+  if(trade_buffer_low < 0)
+    stop("trade_buffer_low must be greater than or equal to zero")
+  if(trade_buffer_high < 0)
+    stop("trade_buffer_high must be greater than or equal to zero")
   misaligned_timestamps <- which(prices[, 1] != theo_weights[, 1])
   if(length(misaligned_timestamps) > 0)
     stop(glue::glue("Misaligned timestamps at indexes {misaligned_timestamps}"))
