@@ -46,12 +46,12 @@ Columns must map between the two matrixes:
 Let's run through an example of how you might wrangle such input data using tools from the tidyverse. 
 
 ```{r setup}
-library(rsims)
+library(rsimsunsymm)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
 
-# load("~/rsims/data/backtest_df_long.RData")
+# load("~/rsimsunsymm/data/backtest_df_long.RData")
 head(backtest_df_long)
 ```
 
@@ -108,7 +108,7 @@ trade_buffer <- 0.
 commission_pct <- 0.
 
 # simulation
-results_df <- cash_backtest(
+results_df <- rsimsunsymm::cash_backtest(
   backtest_prices, 
   backtest_theo_weights, 
   trade_buffer, 

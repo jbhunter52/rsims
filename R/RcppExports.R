@@ -4,6 +4,6 @@
 #' Calculate target positions from theoretical weights and trade buffer parameter
 #' @export
 positionsFromNoTradeBuffer <- function(current_positions, current_prices, current_theo_weights, cap_equity, trade_buffer_low, trade_buffer_high) {
-    .Call('_rsims_positionsFromNoTradeBuffer', PACKAGE = 'rsims', current_positions, current_prices, current_theo_weights, cap_equity, trade_buffer_low, trade_buffer_high)
+    .Call('_rsimsunsymm_positionsFromNoTradeBuffer', PACKAGE = 'rsims', current_positions, current_prices, current_theo_weights, cap_equity, trade_buffer_low, trade_buffer_high)
 }
 

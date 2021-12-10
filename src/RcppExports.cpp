@@ -12,7 +12,7 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 
 // positionsFromNoTradeBuffer
 NumericVector positionsFromNoTradeBuffer(NumericVector current_positions, NumericVector current_prices, NumericVector current_theo_weights, double cap_equity, double trade_buffer_low, double trade_buffer_high);
-RcppExport SEXP _rsims_positionsFromNoTradeBuffer(SEXP current_positionsSEXP, SEXP current_pricesSEXP, SEXP current_theo_weightsSEXP, SEXP cap_equitySEXP, SEXP trade_buffer_lowSEXP, SEXP trade_buffer_highSEXP) {
+RcppExport SEXP _rsimsunsymm_positionsFromNoTradeBuffer(SEXP current_positionsSEXP, SEXP current_pricesSEXP, SEXP current_theo_weightsSEXP, SEXP cap_equitySEXP, SEXP trade_buffer_lowSEXP, SEXP trade_buffer_highSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -28,11 +28,11 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_rsims_positionsFromNoTradeBuffer", (DL_FUNC) &_rsims_positionsFromNoTradeBuffer, 6},
+    {"_rsimsunsymm_positionsFromNoTradeBuffer", (DL_FUNC) &_rsims_positionsFromNoTradeBuffer, 6},
     {NULL, NULL, 0}
 };
 
-RcppExport void R_init_rsims(DllInfo *dll) {
+RcppExport void R_init_rsimsunsymm(DllInfo *dll) {
     R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
     R_useDynamicSymbols(dll, FALSE);
 }

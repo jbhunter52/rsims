@@ -41,7 +41,7 @@ testthat::test_that("New positions are correct for different values of trade_buf
 
 testthat::test_that("Inputs to cash_backtest are legitimate", {
   # setup data
-  load("~/rsims/data/backtest_df.RData")
+  load("~/rsimsunsymm/data/backtest_df.RData")
 
   # get weights as a wide matrix
   backtest_theo_weights <- backtest_df %>%
@@ -78,7 +78,7 @@ testthat::test_that("Inputs to cash_backtest are legitimate", {
 
 testthat::test_that("Commission calculations are correct", {
   # setup data
-  load("~/rsims/data/backtest_df.RData")
+  load("~/rsimsunsymm/data/backtest_df.RData")
 
   # get weights as a wide matrix
   backtest_theo_weights <- backtest_df %>%
@@ -111,7 +111,7 @@ testthat::test_that("Commission calculations are correct", {
 testthat::test_that("Backtest returns known results", {
   # make a simple backtest of 3-4 days and compute results separately
   # setup data
-  load("~/rsims/data/backtest_df.RData")
+  load("~/rsimsunsymm/data/backtest_df.RData")
 
   # get weights as a wide matrix
   backtest_theo_weights <- backtest_df %>%
@@ -139,7 +139,7 @@ testthat::test_that("Backtest returns known results", {
 
   # load a csv created from an excel backtest using the same simulation parameters
   # excel backtest model in tests/test_data.xlsc
-  test_results <- readr::read_csv("~/rsims/tests/test_data.csv")
+  test_results <- readr::read_csv("~/rsimsunsymm/tests/test_data.csv")
 
   # wrangle into same shape and format as results_df
   test_results <- test_results %>%

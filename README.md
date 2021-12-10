@@ -6,7 +6,7 @@ Tools for financial simulation
 
 The easiest way to install and load `rsims` is using `pacman::p_load_current_gh` which wraps `devtools::install_github` and `require`:
 
-`pacman::p_load_current_gh("Robot-Wealth/rsims", dependencies = TRUE)`
+`pacman::p_load_current_gh("Robot-Wealth/rsimsunsymm", dependencies = TRUE)`
 
 ## Usage
 
