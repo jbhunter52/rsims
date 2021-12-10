@@ -1,4 +1,4 @@
 library(testthat)
 library(rsims)
 
-test_check("rsims")
+test_check("rsimsunsymm")
