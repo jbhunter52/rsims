@@ -28,7 +28,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_rsimsunsymm_positionsFromNoTradeBuffer", (DL_FUNC) &_rsims_positionsFromNoTradeBuffer, 6},
+    {"_rsimsunsymm_positionsFromNoTradeBuffer", (DL_FUNC) &_rsimsunsymm_positionsFromNoTradeBuffer, 6},
     {NULL, NULL, 0}
 };
 
